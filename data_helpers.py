@@ -59,6 +59,23 @@ def load_ag_data(authors = None, docID = None):
     return ((trainX, trainY), (valX, valY))
 
 
+def load_doc_data(authors = None, docID = None):
+    import data
+    test = data.getCharDocData(authors, docID) #Pass it to data and it returns a data frame
+    test = test.dropna()
+    
+    labels = []
+    texts = []
+    for index, row in test.iterrows():
+        labels.append(authors.index(row.author_id))
+        texts.append(row.doc_content)
+
+    del test # Garbage collection
+
+    print('Found %s texts.' % len(texts))
+    return (texts, labels)
+    
+
 def mini_batch_generator(x, y, vocab, vocab_size, vocab_check, maxlen,
                          batch_size=128):
 

@@ -62,7 +62,7 @@ def model(classes, filter_kernels, dense_outputs, maxlen, vocab_size, nb_filter)
     model.compile(loss='categorical_crossentropy', optimizer=sgd,
                   metrics=['accuracy'])
 
-    return model
+    return (model, sgd)
 
 
 # In[ ]:
