@@ -129,7 +129,7 @@ def create_vocab_set():
     import string
     unicode_characters = [];
     #initially 1280
-    for k in range(0, 1280):
+    for k in range(0, 500):
         unicode_characters.append(unichr(k))
         
     #or k in range(1024, 1280):

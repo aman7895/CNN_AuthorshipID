@@ -10,7 +10,7 @@ import nltk
 import re #This is to parse the HTML code from the given text
 from sshtunnel import SSHTunnelForwarder #This is to connect to the local Database
 
-def getCharAuthorData(authors, doc, documentTable = 'aman_document_unicode', chunk_size = 1000):
+def getCharAuthorData(authors, doc, documentTable = 'aman_content', chunk_size = 1000):
     df = pd.DataFrame()
     conn = None
     output = []
@@ -89,7 +89,7 @@ def getCharAuthorData(authors, doc, documentTable = 'aman_document_unicode', chu
     # print df
     return df
 
-def getCharDocData(authors, doc, documentTable = 'aman_document_unicode', chunk_size = 1000):
+def getCharDocData(authors, doc, documentTable = 'aman_content', chunk_size = 1000):
     df = pd.DataFrame()
     conn = None
     output = []
