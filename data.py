@@ -37,7 +37,15 @@ def getCharAuthorData(authors, doc, documentTable = 'aman_content', chunk_size =
                     flag = True
                 else:
                     query = query + ", " + str(auth)
-            query = query + ") AND doc_id <> '" + str(doc) + "' ;"
+            query = query + ") AND doc_id NOT IN ("
+            flag = False
+            for doc_id in doc:
+                if not flag:
+                    query = query + str(doc_id)
+                    flag = True
+                else:
+                    query = query + ", " + str(doc_id)
+            query = query + ") ;"
             cur.execute(query)
             print("Execution completed")
             rows = cur.fetchall()
@@ -149,6 +157,7 @@ def getCharDocData(authors, doc, documentTable = 'aman_content', chunk_size = 10
             print(df.dtypes)
             print("Data Frame created: Shape: %s" % (str(df.shape)))
 
+    
     except psycopg2.Error as e:
         if conn:
             conn.rollback()
