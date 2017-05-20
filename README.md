@@ -1,0 +1,2 @@
+This is a Cross-lingual study on Authorship Identification. I implemented the concept using Deep Learning Methods (CNN and Fully Connected Neural Network) and Machine Learning (SVM). The program inputs various authors that have written documents in multiple languages, and a test documents. The output is the predicted author for the given test document.  
+This program is implemented using CNN and main.ipynb is the file that I use for running tests. 
